@@ -33,7 +33,7 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: spring-boot
-        IMAGE_TAG: spring-boot:latest
+        IMAGE_TAG: spring-boot:major@v1
       run: |
             docker build -t spring-boot .
             docker tag spring-boot:latest 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:latest
