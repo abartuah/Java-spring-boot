@@ -37,4 +37,4 @@ jobs:
       run: |
             docker build -t spring-boot .
             docker tag spring-boot:latest 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:latest
-            docker push 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:latest
+            docker push 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:major@v1
