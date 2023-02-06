@@ -38,3 +38,6 @@ jobs:
             docker build -t spring-boot:build-${{ env.GITHUB_RUN_NUMBER }} . 
             docker tag spring-boot:build-${{ env.GITHUB_RUN_NUMBER }} 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:build-${{ env.GITHUB_RUN_NUMBER }}
             docker push 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:build-${{ env.GITHUB_RUN_NUMBER }}
+            docker tag spring-boot:733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:build-${{ env.GITHUB_RUN_NUMBER }} spring-boot:733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:latest
+            docker push spring-boot:733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:latest
+
