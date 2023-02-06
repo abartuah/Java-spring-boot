@@ -35,6 +35,6 @@ jobs:
         ECR_REPOSITORY: spring-boot
         IMAGE_TAG: spring-boot:v1.0
       run: |
-            docker build --tag=spring-boot:$BUILD_NUMBER .
+            docker build -t spring-boot .
             docker tag spring-boot:$BUILD_NUMBER 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:latest
             docker push 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:v1.0
