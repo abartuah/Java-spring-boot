@@ -36,17 +36,12 @@ jobs:
         
     - name: Tag Docker image with build number
       run: |
-        docker build -t spring-boot .
+
         BUILD_NUMBER=${{ env.GITHUB_RUN_NUMBER }}
         IMAGE_TAG=${BUILD_NUMBER}
+        docker build -t spring-boot .
         docker tag spring-boot:latest 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:$IMAGE_TAG
-        
-    - name: Tag Docker image as latest
-      run: |
         docker tag 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:$IMAGE_TAG 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:latest
-        
-    - name: Push Docker image to Amazon ECR
-      run: |
-       docker push 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:$IMAGE_TAG
-       docker push 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:latest
+        docker push 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:$IMAGE_TAG
+        docker push 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:latest
 
