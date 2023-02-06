@@ -1,3 +1,4 @@
+
 name: Deploy to ECR
 
 on:
@@ -33,10 +34,8 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: spring-boot
-        
-    - name: Tag Docker image with build number
+  
       run: |
-
         BUILD_NUMBER=${{ env.GITHUB_RUN_NUMBER }}
         IMAGE_TAG=${BUILD_NUMBER}
         docker build -t spring-boot .
@@ -44,4 +43,3 @@ jobs:
         docker tag 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:$IMAGE_TAG 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:latest
         docker push 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:$IMAGE_TAG
         docker push 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:latest
-
