@@ -34,12 +34,12 @@ jobs:
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: spring-boot
+        BUILD_NUMBER: ${{ env.GITHUB_RUN_NUMBER }}
   
       run: |
-        BUILD_NUMBER=${{ env.GITHUB_RUN_NUMBER }}
-        IMAGE_TAG=${BUILD_NUMBER}
+        
         docker build -t spring-boot:latest .
-        docker tag spring-boot:latest 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:$IMAGE_TAG
-        docker tag 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:$IMAGE_TAG 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:latest
-        docker push 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:$IMAGE_TAG
+        docker tag spring-boot:latest 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:${{ env.BUILD_NUMBER }}
+        docker tag 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:${{ env.BUILD_NUMBER }} 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:latest
+        docker push 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:${{ env.BUILD_NUMBER }}
         docker push 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:latest
