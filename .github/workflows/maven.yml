@@ -35,6 +35,6 @@ jobs:
         ECR_REPOSITORY: spring-boot
         
       run: |
-            docker build -t spring-boot:latest-${{ env.GITHUB_RUN_NUMBER }} . 
-            docker tag spring-boot:latest-${{ env.GITHUB_RUN_NUMBER }} 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:latest-${{ env.GITHUB_RUN_NUMBER }}
-            docker push 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:latest-${{ env.GITHUB_RUN_NUMBER }}
+            docker build -t spring-boot:latest-0.14${{ env.GITHUB_RUN_NUMBER }} . 
+            docker tag spring-boot:latest-0.14${{ env.GITHUB_RUN_NUMBER }} 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:latest-0.14${{ env.GITHUB_RUN_NUMBER }}
+            docker push 733215289643.dkr.ecr.us-east-2.amazonaws.com/spring-boot:latest-0.14${{ env.GITHUB_RUN_NUMBER }}
